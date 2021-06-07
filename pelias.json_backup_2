@@ -1,0 +1,83 @@
+{
+  "logger": {
+    "level": "info",
+    "timestamp": false
+  },
+  "esclient": {
+    "apiVersion": "7.6",
+    "hosts": [
+	{
+	"protocol": "https:",
+	"host": "search-pelias-hoevueksapyrjpqcsyqircds5a.us-east-1.es.amazonaws.com",
+	"port": 443
+	}
+    ]
+  },
+  "elasticsearch": {
+    "settings": {
+      "index": {
+        "refresh_interval": "10s",
+        "number_of_replicas": "0",
+        "number_of_shards": "3"
+      }
+    }
+  },
+  "acceptance-tests": {
+    "endpoints": {
+      "docker": "localhost:4000/v1/"
+    }
+  },
+  "api": {
+    "services": {
+      "placeholder": { "url": "localhost:4100" },
+      "pip": { "url": "localhost:4200" },
+      "interpolation": { "url": "localhost:4300" },
+      "libpostal": { "url": "localhost:4400" }
+    },
+    "targets": {
+      "csv": ["address"]
+    }
+  },
+  "imports": {
+    "adminLookup": {
+      "enabled": true
+    },
+    "geonames": {
+      "datapath": "/home/ubuntu/pelias-from-scratch/geonames",
+      "countryCode": "BR"
+    },
+    "openstreetmap": {
+      "download": [
+        { "sourceURL": "http://download.geofabrik.de/south-america/sudeste-latest.osm.pbf" }
+      ],
+      "leveldbpath": "/tmp",
+      "datapath": "/home/ubuntu/pelias-from-scratch/openstreetmap",
+      "import": [{
+        "filename": "sudeste-latest.osm.pbf"
+      }]
+    },
+    "openaddresses": {
+      "datapath": "/home/ubuntu/pelias-from-scratch/openaddresses",
+      "files": [
+        "br/sp/statewide.csv"
+      ]
+    },
+    "polyline": {
+      "datapath": "/home/ubuntu/pelias-from-scratch/polylines",
+      "files": [ "extract.0sv" ]
+    },
+    "whosonfirst": {
+      "datapath": "/home/ubuntu/pelias-from-scratch/whosonfirst",
+      "countryCode": "BR",
+      "importPostalcodes": true,
+      "importPlace": [
+        "85633009"
+      ]
+    },
+     "csv": {
+      "datapath": "/home/ubuntu/pelias-from-scratch/csv_files",
+      "files": ["a.csv"],
+      "download": ["https://pelias-kops-bucket-ics-delivery-state-store.s3.amazonaws.com/geo-maps/geoSource.csv"]
+    }
+  }
+}
