@@ -117,7 +117,7 @@
     },
      "csv": {
       "datapath": "/home/ubuntu/pelias-from-scratch/csv_files",
-      "files": ["a.csv"],
+      "files": ["geoSource.csv"],
       "download": ["https://pelias-kops-bucket-ics-delivery-state-store.s3.amazonaws.com/geo-maps/geoSource.csv"]
     }
   }
