@@ -40,7 +40,7 @@
       "libpostal": { "url": "http://libpostal:4400" }
     },
     "targets": {
-      "csv": ["address"]
+      "auto_discover": true
     }
   },
   "imports": {
