@@ -13,7 +13,7 @@
          "hosts": [
       {
       "protocol": "http:",
-      "host": "ab12b5ca4720044f285ac983b5b9112f-6279791946e8e99f.elb.sa-east-1.amazonaws.com",
+      "host": "elastic",
       "port": 9200
       }
       ]
